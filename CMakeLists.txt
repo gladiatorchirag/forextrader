@@ -5,8 +5,8 @@ project(ForexTrader)
 set( SOURCES
    main.cpp
    order.cpp
-   buyorder.cpp
-   sellorder.cpp
+   match.cpp
+   forexmanager.cpp
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES})

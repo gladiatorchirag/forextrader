@@ -1,26 +1,30 @@
 #ifndef ORDER_H
 #define ORDER_H
+
 #include <string>
 
 using namespace std;
 
-class Order
+class BaseOrder
 {
 public:
-    Order(string aCustID, string aConvDetails, int aUnits, float aLPrice);
+
+    BaseOrder(string aCustID, string aConvDetails, int aUnits, float aLPrice, unsigned int aOrderID);
 
     const string getCustomerID(){return customerID;}
-    const string getConversionDetails(){return conversionDetails;}
-    const int getUnits(){return units;}
+    const string getInstrumentDetails(){return instrumentDetails;}
+    const int getInstrumentUnits(){return instrumentUnits;}
     const float getLimitPrice(){ return limitPrice;}
-
-    virtual void execute(int units);
+    const unsigned int getOrderID(){ return orderID;}
+    void setInstrumentUnits(int aUnits){instrumentUnits = aUnits;}
+    void displayOrderDetails();
 
 private:
     string customerID;
-    string conversionDetails;
-    int units;
+    string instrumentDetails;
+    int instrumentUnits;
     float limitPrice;
+    unsigned int orderID;
 };
 
 #endif // ORDER_H
